@@ -1,14 +1,12 @@
 import math
 
 def binary_search(array, target):
-  if len(array) == 1 and array[0] == target:
-    return 0
-  if len(array) == 1 and array[0] != target:
+  if len(array) == 0:
     return None
   
   mid_index = math.floor(len(array) / 2)
   left = array[0:mid_index]
-  right = array[mid_index:]
+  right = array[mid_index+1:]
 
   if target == array[mid_index]:
     return mid_index
@@ -20,10 +18,7 @@ def binary_search(array, target):
     if result == None:
       return None
     else:
-      return result + mid_index
-        # don't add a 1 here because we include the pivot in the right array
-        # would need to add an extra 1 if we instead included the pivot in the left array
-
+      return result + mid_index + 1
 
 # Test cases
 print(binary_search([1,2,3,4,5,6,7,8], 8) == 7)
